@@ -45,9 +45,9 @@ TcpServerClient::TcpServerClient(TcpServer* server, int sock) : Thread()
 
 TcpServerClient::~TcpServerClient()
 {
-	printf("TcpServerClient::~TcpServerClient sockfd:%d...START\n", d->oldSockFd);
+	//printf("TcpServerClient::~TcpServerClient sockfd:%d...START\n", d->oldSockFd);
 	delete d;
-	printf("TcpServerClient::~TcpServerClient sockfd:%d...END\n", d->oldSockFd);
+	//printf("TcpServerClient::~TcpServerClient sockfd:%d...END\n", d->oldSockFd);
 }
 
 PD::TcpSocket* TcpServerClient::socket() { return d->sock; }
@@ -153,8 +153,8 @@ void TcpServer::disconnectAllCli()
 	//printf("TcpServer::disconnectAllCli...START %x\n", this);
 	PD::MutexLocker ml(&d->clientListMutex);
 
-	if (useClientList())
-		printf("***TcpServer::disconnectAllCli useClientList***\n\n\n");
+	//if (useClientList())
+	//	printf("***TcpServer::disconnectAllCli useClientList***\n\n\n");
 	PD::FlagScoper fs(&d->onDisconnecting);
 
 	ClientListIt it = d->clientList.begin();
@@ -165,8 +165,8 @@ void TcpServer::disconnectAllCli()
 		{
 			client->stop();
 			client->wait();
-			printf("TcpServer::disconnectAllCli sockfd:%d\n",
-				client->oldSockFd());
+			//printf("TcpServer::disconnectAllCli sockfd:%d\n",
+			//	client->oldSockFd());
 			delete client;
 		}
 
@@ -202,7 +202,7 @@ void TcpServer::chkDisconnectedCli()
 	PD::MutexLocker ml(&d->clientListMutex);
 	if (useClientList()) 
 	{
-		printf("***TcpServer::chkDisconnectedCli useClientList***\n\n\n");
+		//printf("***TcpServer::chkDisconnectedCli useClientList***\n\n\n");
 		return;
 	}
 	PD::FlagScoper fs(&d->onDisconnecting);
@@ -216,8 +216,8 @@ void TcpServer::chkDisconnectedCli()
 
 		if (client)
 		{
-			printf("TcpServer::chkDisconnectedCli sockfd:%d\n",
-				client->oldSockFd());
+			//printf("TcpServer::chkDisconnectedCli sockfd:%d\n",
+			//	client->oldSockFd());
 			client->stop();
 			client->wait();
 			d->clientList.remove(client);
@@ -288,18 +288,18 @@ bool TcpServer::listen(const char* host, int port)
 
 	if (!d->sock->bind())
 	{
-		printf("TcpServer::listen failed to bind\n");
+		//printf("TcpServer::listen failed to bind\n");
 		return false;
 	}
 
 	if (!d->sock->listen())
 	{
-		printf("TcpServer::listen failed to listen\n");
+		//printf("TcpServer::listen failed to listen\n");
 		delete d->sock; d->sock = NULL;
 		return false;
 	}
 
-	printf("TcpServer::listen %s:%d\n", host, port);
+	//printf("TcpServer::listen %s:%d\n", host, port);
 
 	start(LowestPriority);
 
@@ -350,8 +350,8 @@ int TcpServer::run()
 			continue;
 		}
 
-		printf("TcpServer::run incoming new client "
-			"sockfd:%d peer(%s:%d)\n", fd, d->sock->host(), d->sock->port());
+		//printf("TcpServer::run incoming new client "
+		//	"sockfd:%d peer(%s:%d)\n", fd, d->sock->host(), d->sock->port());
 
 		TcpServerClient* c = newConnection(fd);
 		if (c == NULL) 
@@ -369,7 +369,7 @@ int TcpServer::run()
 		//printf("TcpServer::run...2\n"); fflush(stdout);
 	}
 	
-	printf("TcpServer::run end\n"); fflush(stdout);
+	//printf("TcpServer::run end\n"); fflush(stdout);
 	return 0;
 }
 

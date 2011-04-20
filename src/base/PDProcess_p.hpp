@@ -48,7 +48,7 @@ public:
 			{
 				if( it+1 == arguments.end() )
 				{
-					printf( "Redirection(<) file name missing\n");
+					//printf( "Redirection(<) file name missing\n");
 					return -1;
 				}
 				inFile = *(it+1);
@@ -59,7 +59,7 @@ public:
 			{
 				if( it+1 == arguments.end() )
 				{
-					printf( "Redirection(>) file name missing\n");
+					//printf( "Redirection(>) file name missing\n");
 					return -1;
 				}
 				outFile = *(it+1);
@@ -99,7 +99,7 @@ public:
 
 		if (pipe(pipeStdOut) == -1 || pipe(pipestdErr) == -1)
 		{
-			printf("failed to open pipe!");
+			//printf("failed to open pipe!");
 			return -1;
 		}
 		if ((pid = fork()) == 0) 
@@ -109,7 +109,7 @@ public:
 			{	
 				if ( (fp = freopen(outFile.c_str(), "w", stdout)) == NULL)
 				{
-					printf("redirect outfile error!\n");
+					//printf("redirect outfile error!\n");
 					return -1;
 				}
 			} 
@@ -117,7 +117,7 @@ public:
 			{
 				if ( (fp = freopen(inFile.c_str(),"r", stdin)) == NULL)
 				{
-					printf("redirect infile error!\n");
+					//printf("redirect infile error!\n");
 					return -1;
 				}
 				dup2(pipeStdOut[Process::WritePipe], fileno(stdout));
@@ -138,16 +138,16 @@ public:
 			{
 				//printf("PD::Process::runChild() pipeCheck True!!\n");
 
-				if (system(command.c_str()) == -1)
-					printf("failed to system('%s')\n", command.c_str());
+				//if (system(command.c_str()) == -1)
+				//	printf("failed to system('%s')\n", command.c_str());
 				if( outFile != "" || inFile != "" )
 					fclose(fp);
 				exit(0);
 			}
 			else if( wildCardsCheck )
 			{
-				if (system(command.c_str()) == -1)
-					printf("failed to system('%s')\n", command.c_str());
+				//if (system(command.c_str()) == -1)
+				//	printf("failed to system('%s')\n", command.c_str());
 
 				//printf("Process::runChild() wildCardsCheck True!!\n");
 
@@ -172,7 +172,7 @@ public:
 				{
 					if( outFile != "" || inFile != "" )
 						fclose(fp);
-					printf("execvp error! - no such file?\n");
+					//printf("execvp error! - no such file?\n");
 					exit(-1);
 				}
 				fclose(fp);	
@@ -198,7 +198,7 @@ public:
 				if( ret == 0 )
 					break;
 				fflush(stdout);
-				printf("%c", buf);
+				//printf("%c", buf);
 				temp = temp + buf;
 				if( buf == '\n' )
 				{
@@ -220,7 +220,7 @@ public:
 				if( ret == 0 )
 					break;
 				fflush(stdout);
-				printf("%c", buf);
+				//printf("%c", buf);
 
 				temp = temp + buf;
 				if( buf == '\n' )

@@ -298,7 +298,7 @@ bool File::fsync(const char* filename)
 	int ret = ::fsync( fd );
 	if ( ret==-1 )
 	{
-		printf("File::fsync failed\n");
+		//printf("File::fsync failed\n");
 		::close(fd);
 		return false;
 	}

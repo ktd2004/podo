@@ -32,7 +32,7 @@ int UdpSocket::sendBroadcast(const char* packet, size_t packetSize, int port)
 {
 	if (socketDescriptor() == -1) 
 	{
-		printf("UdpSocket::sendBroadcast() socketDescriptor() Error!\n");
+		//printf("UdpSocket::sendBroadcast() socketDescriptor() Error!\n");
 		return -1;
 	}
 	
@@ -62,7 +62,7 @@ int UdpSocket::sendPacket(const char* packet, size_t packetSize,
 {
 	if (socketDescriptor() == -1) 
 	{
-		printf("UdpSocket::sendPacket() socketDescriptor() Error!\n");
+		//printf("UdpSocket::sendPacket() socketDescriptor() Error!\n");
 		return -1;
 	}
 	
@@ -83,7 +83,7 @@ int UdpSocket::sendPacket(const char* packet, size_t packetSize,
     if ( 0 != (ret = getaddrinfo(host.c_str(), tempPort, 
  		&hints, &res)) )
     {
-        printf("UdpSocket::sendPacket %s\n", gai_strerror(ret));
+        //printf("UdpSocket::sendPacket %s\n", gai_strerror(ret));
         return -1;
     }
 	ressave = res;
@@ -105,7 +105,7 @@ int UdpSocket::recvPacket(char* packet, size_t packetSize,
 {
 	if (socketDescriptor() == -1) 
 	{
-		printf("UdpSocket::recvPacket() socketDescriptor() Error!\n");
+		//printf("UdpSocket::recvPacket() socketDescriptor() Error!\n");
 		return -1;
 	}
 

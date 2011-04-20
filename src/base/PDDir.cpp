@@ -102,10 +102,10 @@ String::StringList Dir::entryList(int f/*=NoFilter*/,
  *
  * \return file의 크기
  */
-uintmax_t Dir::size (const char *fileName)
+off_t Dir::size (const char *fileName)
 {
     int fileType = 0;
-    uintmax_t totalFileSize = 0;
+    off_t totalFileSize = 0;
 
     fileType = d->getFileType (fileName);
     if (Dir::RegularFile == fileType)

@@ -127,8 +127,8 @@ int TcpSocket::sendPacket(const char* packet, size_t packetSize)
 #endif
 		if (n == 0)
 		{
-            printf("TcpSocket::sendPacket disconnected written:%d\n", 
-				written);
+            //printf("TcpSocket::sendPacket disconnected written:%d\n", 
+			//	written);
 			close();
 			return -3;
 		}
@@ -148,8 +148,8 @@ int TcpSocket::sendPacket(const char* packet, size_t packetSize)
 			}
 			else if (errno == ETIMEDOUT)
 			{
-				printf("TcpSocket::sendPacket sockfd:%d ETIMEDOUT written:%d\n",
-					socketDescriptor(), written);
+				//printf("TcpSocket::sendPacket sockfd:%d ETIMEDOUT written:%d\n",
+				//	socketDescriptor(), written);
 				//close();
 				return -2;
 			}
@@ -164,9 +164,9 @@ int TcpSocket::sendPacket(const char* packet, size_t packetSize)
 			}
 			#endif
 
-            printf("TcpSocket::sendPacket sockfd:%d Failed to send:%d error:%d "
-				"written:%d\n",
-                socketDescriptor(), n, errno, written);
+            //printf("TcpSocket::sendPacket sockfd:%d Failed to send:%d error:%d "
+			//	"written:%d\n",
+             //   socketDescriptor(), n, errno, written);
 			close();
 			return -1;
 		}
@@ -310,7 +310,7 @@ int TcpSocket::connect(const char* host, int port)
 	if ( 0 != (ret = getaddrinfo(host, portStr, &hints, &res)) )
     {
 		close();
-        fprintf(stderr, "%s", gai_strerror(ret));
+        //fprintf(stderr, "%s", gai_strerror(ret));
         return -1;
     }
 
@@ -327,8 +327,8 @@ int TcpSocket::connect(const char* host, int port)
 		if (errno != EINPROGRESS && errno!= EWOULDBLOCK)
 		{
 			close();
-			printf("TcpSocket::connect sockfd:%d connect error:%d\n", 
-				socketDescriptor(), n);
+			//printf("TcpSocket::connect sockfd:%d connect error:%d\n", 
+			//	socketDescriptor(), n);
 			return -1;
 		}
 
@@ -391,7 +391,7 @@ int TcpSocket::connect(const char* host, int port)
 				(socklen_t*)&len) < 0) 
 			{
 				close();
-				printf("getsockopt error\n");
+				//printf("getsockopt error\n");
 				return -1;
 			}
 
@@ -405,7 +405,7 @@ int TcpSocket::connect(const char* host, int port)
 		else
 		{
 			close();
-			printf("select error : sockfd not set\n");
+			//printf("select error : sockfd not set\n");
 			return -1;
 		}
 

@@ -53,7 +53,7 @@ public:
 
 	String::StringList entryList(const char* path, int f=NoFilter,
 		std::string nameFilter="");
-	uintmax_t size(const char* path);
+	off_t size(const char* path);
 };
 
 } //namespace PD {

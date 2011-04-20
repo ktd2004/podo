@@ -23,7 +23,7 @@ public:
 		DIR *srcdir = opendir(dir);
 		if(!srcdir)
 		{
-			printf("Dir::readDir '%s' open failed!!", dir);
+			//printf("Dir::readDir '%s' open failed!!", dir);
 			return list;
 		}
 		struct dirent *pent;
@@ -37,7 +37,7 @@ public:
 			
 			if(lstat(allPath.c_str(), &st) == -1)
 			{
-				printf("Dir::readDir stat error\n");
+				//printf("Dir::readDir stat error\n");
 				return list;
 			}	
 			fileMode = st.st_mode;
@@ -104,13 +104,13 @@ public:
 
 
 		
-	uintmax_t getDirFileSize (const char *directoryName)
+	off_t getDirFileSize (const char *directoryName)
 	{
 		//printf ("[Directory Name = %s]\n", directoryName);
 
-		int retSize = 0;
+		off_t retSize = 0;
 		int fileType = 0;
-		uintmax_t fileSize = 0;
+		off_t fileSize = 0;
 		char currentFilePath[1024];
 		DIR *dirp;
 		struct dirent *dp;
@@ -153,7 +153,7 @@ public:
 		struct stat buf;
 		if (lstat (fileName, &buf)) 
 		{
-			printf ("Dir::getFileType() lstat error.!!\n");
+			//printf ("Dir::getFileType() lstat error.!!\n");
 			return -1;
 		}
 		if (S_ISREG (buf.st_mode))
@@ -164,12 +164,12 @@ public:
 			return Dir::UnknownFile;
 	}
 
-	int getFileSize (const char *fileName)
+	off_t getFileSize (const char *fileName)
 	{
 		struct stat buf;
 		if (lstat (fileName, &buf)) 
 		{
-			printf("Dir::getFileSize() lstat error.!!\n");
+			//printf("Dir::getFileSize() lstat error.!!\n");
 			return -1;
 		}
 		return buf.st_size;

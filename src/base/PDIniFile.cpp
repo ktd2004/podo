@@ -237,7 +237,7 @@ int IniFile::write(const std::string &fn)
 	unlink(fn.c_str());
 	if(file.open(fn.c_str(), PD::File::WriteOnly | PD::File::Create) == -1)
 	{
-		printf("IniFile::write '%s' file open failed.\n", fn.c_str());
+		//printf("IniFile::write '%s' file open failed.\n", fn.c_str());
 		return -1;
 	}	
 
@@ -252,7 +252,7 @@ int IniFile::write(const std::string &fn)
 	//int retn = -1;
 	while(g_it != d->groups.end())
 	{
-		std::string section= (*g_it).first;
+		const std::string& section = (*g_it).first;
 		memset(buf, 0, sizeof(buf));
 		snprintf(buf, sizeof(buf), "[%s]\n", section.c_str());
 

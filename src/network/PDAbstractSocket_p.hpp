@@ -1,23 +1,6 @@
 #ifndef _PDABSTRACTSOCKET_P_H_
 #define _PDABSTRACTSOCKET_P_H_
 
-/*
-#include "PDAbstractSocket.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <errno.h>
-
-#ifndef WIN32
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <sys/ioctl.h>
-#include <sys/un.h>
-#include <signal.h>
-#endif
-
-#include <fcntl.h>
-*/
- 
 namespace PD {
 
 class AbstractSocketPrivate

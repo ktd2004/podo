@@ -59,7 +59,7 @@ int Process::start()
 {
 	if( d->command.empty())
 	{
-		printf("Program Name Empty!!\n");
+		//printf("Program Name Empty!!\n");
 		return -1;
 	}
 	return start(d->command);
@@ -77,7 +77,7 @@ int Process::start(std::string cmd)
 	d->command = cmd;
 	if( d->command.empty())
 	{
-		printf("Program Name Empty!!\n");
+		//printf("Program Name Empty!!\n");
 		return -1;
 	}
 	//printf("Process::start(cmd):%s\n", cmd.c_str());

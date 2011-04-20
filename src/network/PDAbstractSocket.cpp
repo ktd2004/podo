@@ -151,14 +151,14 @@ bool AbstractSocket::listen()
 {
 	if (isClosed()) 
 	{
-		printf("AbstractSocket::bind not opened socket\n");
+		//printf("AbstractSocket::bind not opened socket\n");
 		return false;
 	}
 
 	int backlog = 0;
 	if (::listen(socketDescriptor(), backlog) == -1)
 	{
-		printf("AbstractSocket::listen failed to listen\n");
+		//printf("AbstractSocket::listen failed to listen\n");
 		return false;
 	}
 
@@ -237,7 +237,7 @@ int AbstractSocket::bytesAvailable()
 #ifndef WIN32
 	if (ioctl(socketDescriptor(),FIONREAD, &availBytes) != 0)
 	{
-		printf("AbstractSocket::bytesAvailable errno:%d\n", errno);
+		//printf("AbstractSocket::bytesAvailable errno:%d\n", errno);
 		return -1;
 	}
 #else

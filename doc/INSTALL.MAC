@@ -1,0 +1,23 @@
+1. Install macport from macports.org
+ 
+2. Install prerequisites packages
+~$ sudo port install cmake libsdl
+
+3. Extract podo source
+~$ tar xzf podo-version.tgz
+
+4. Make shadow build directory
+~$ mkdir build
+~$ cd build
+~/build$ 
+
+5. Make
+~/build$ cmake ../podo-version
+~/build$ make
+
+6. Run demo
+~/build$ export PD_DIR=$PWD
+~/build$ cd demo/dvr
+~/build$ ./dvr
+
+

@@ -1,0 +1,7 @@
+add_subdirectory(thread)
+add_subdirectory(process)
+add_subdirectory(calendar)
+add_subdirectory(dir)
+add_subdirectory(file)
+add_subdirectory(datetime)
+add_subdirectory(inifile)

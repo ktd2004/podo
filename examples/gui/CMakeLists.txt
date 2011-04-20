@@ -1,0 +1,8 @@
+add_subdirectory(button)
+add_subdirectory(calc)
+add_subdirectory(calendar)
+add_subdirectory(checkbox)
+add_subdirectory(dialog)
+add_subdirectory(draw)
+add_subdirectory(hello)
+add_subdirectory(label)

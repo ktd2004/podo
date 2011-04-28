@@ -625,7 +625,7 @@ void App::processEvent()
 
 	{
 		MutexLocker ml(&theApp->eventListMutex());
-		if (theApp->eventList().size() == 0) return;
+		if (theApp->eventList().size() == 0) { usleep(0); return; }
 
 		evt = theApp->eventList().front();
 		theApp->eventList().pop_front();

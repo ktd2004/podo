@@ -625,7 +625,7 @@ void App::processEvent()
 
 	{
 		MutexLocker ml(&theApp->eventListMutex());
-		if (theApp->eventList().size() == 0) { usleep(0); return; }
+		if (theApp->eventList().size() == 0) { return; }
 
 		evt = theApp->eventList().front();
 		theApp->eventList().pop_front();
@@ -662,6 +662,7 @@ bool App::pollEvent()
 	while (!theApp->d->exitFlag)
 	{
 		processEvent();
+		usleep(0);
 	}
 	//printf("App::pollEvent end\n");
 

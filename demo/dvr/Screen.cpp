@@ -22,6 +22,8 @@
 
 Screen::Screen(PD::Widget* parent) : PD::Widget(parent, "Screen")
 {
+	setBgMode(PD::NoBg);
+
 	m_hasBorderLine = true;
 	m_isVisibleCameraName = true;
 	m_isVisibleOSD = true;
@@ -269,6 +271,13 @@ void Screen::drawChannelArea(int idx, const PD::Rect& rect, PD::Painter* p)
 void Screen::paintEvent(PD::PaintEvent* evt)
 {
 	//printf("Screen::paintEvent name:%s\n", name());
+
+	if (evt->rect().width() != width() ||
+		evt->rect().height() != height())
+	{
+		return;
+	}
+
 	PD::Painter p(this);
 
 	int x = 0;

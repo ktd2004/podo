@@ -822,6 +822,8 @@ void Widget::update(const Rect& rect)
 
 	if (!isVisible()) return;
 
+	paint(rect);
+
 	//printf("Widget::update region name:%s "
 	//	"isVisible:%d local x:%d y:%d w:%d h:%d\n", 
 	//	name(), isVisible(), 

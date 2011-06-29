@@ -204,7 +204,8 @@ APP_END:
 				w = theApp->desktopWidget()->findMouseWidget(
 						Point(sdlEvt.button.x, sdlEvt.button.y));	
 			}
-			assert(w != 0);
+			//assert(w != 0);
+			if (w == 0) return 0;
 
 			if (!w->isClosing())
 			{

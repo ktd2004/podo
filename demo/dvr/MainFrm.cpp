@@ -21,6 +21,8 @@
 
 MainFrm::MainFrm(Widget* parent) : Widget(parent, "MainFrm") 
 {
+	setBgMode(PD::NoBg);
+
 	m_screen = new Screen(this);
 	m_screen->show();
 

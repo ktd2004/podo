@@ -2,7 +2,6 @@
 ~$ export CC=arm-linux-gcc
 ~$ export CXX=arm-linux-g++
 ~$ export SDLDIR=/path/SDL-dir
-~$ export SDLIMAGEDIR=/path/SDL_image-dir
 
 2. Extract podo source code
 ~$ tar xzf podo-src.tgz

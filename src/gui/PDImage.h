@@ -19,7 +19,6 @@
 #define _PDIMAGE_H_
 
 #include <SDL.h>
-#include <SDL_image.h>
 #include "PDRect.h"
 
 namespace PD {

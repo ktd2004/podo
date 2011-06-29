@@ -17,6 +17,7 @@
  */
 #include "PDImage.h"
 #include "PDImage_p.hpp"
+#include "3rdparty/SDL_image/SDL_image.h"
 
 namespace PD {
 

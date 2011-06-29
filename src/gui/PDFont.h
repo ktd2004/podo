@@ -19,7 +19,7 @@
 #define _PDFONT_H_
 
 #include "PDColor.h"
-#include "SDL_ttf.h"
+#include "3rdparty/SDL_ttf/SDL_ttf.h"
 #include <string>
 #include <base/PDMutex.h>
 

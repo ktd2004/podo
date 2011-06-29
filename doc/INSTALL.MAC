@@ -4,20 +4,19 @@
 ~$ sudo port install cmake libsdl
 
 3. Extract podo source
-~$ tar xzf podo-version.tgz
+~$ tar xzf podo-src.tgz
 
 4. Make shadow build directory
 ~$ mkdir build
 ~$ cd build
 ~/build$ 
 
-5. Make
-~/build$ cmake ../podo-version
-~/build$ make
+5. Setting up PODO environment
+~/build$ export PD_DIR=$PWD
+~/build$ cd lib
+~/build/lib$ ln -s ../../podo-src/lib/fonts
+~/build/lib$ cd ..
 
 6. Run demo
-~/build$ export PD_DIR=$PWD
 ~/build$ cd demo/dvr
-~/build$ ./dvr
-
-
+~/build/demo/dvr$ ./dvr

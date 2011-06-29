@@ -5,7 +5,7 @@
 ~$ export SDLIMAGEDIR=/path/SDL_image-dir
 
 2. Extract podo source code
-~$ tar xzf podo-version.tgz
+~$ tar xzf podo-src.tgz
 
 3. Make a shadow build directory
 ~$ mkdir build
@@ -13,12 +13,15 @@
 ~/build$ 
 
 4. Make
-~/build$ cmake -DCMAKE_TOOLCHAIN_FILE=../podo-version/toolchain/XXXX.cmake ../podo-version
+~/build$ cmake ../podo-src
 ~/build$ make
 
-5. Run demo
+5. Setting up PODO environment
 ~/build$ export PD_DIR=$PWD
+~/build$ cd lib
+~/build/lib$ ln -s ../../podo-src/lib/fonts
+~/build/lib$ cd ..
+
+6. Run demo
 ~/build$ cd demo/dvr
-~/build$ ./dvr
-
-
+~/build/demo/dvr$ ./dvr
